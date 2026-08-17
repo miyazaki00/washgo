@@ -14,6 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Old+Mincho:wght@500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles.css">
+    <script src="./cars.js"></script>
     <script src="./script.js" defer></script>
   </head>
   <body>
@@ -31,7 +32,7 @@
           <a href="#menu">メニュー</a>
           <a href="#stores">店舗</a>
           <a href="#facility">施設様へ</a>
-          <a class="nav-cta" href="#stores">予約する</a>
+          <a class="nav-cta" href="#menu">料金を見る</a>
         </nav>
       </div>
     </header>
@@ -59,11 +60,15 @@
           <span class="bubble bubble-c"></span>
         </div>
         <div class="container hero-content">
-          <p class="eyebrow">SHOPPING × CAR WASH</p>
-          <h1>お買い物のスキマ時間で、<br>愛車をピカピカに。</h1>
-          <p class="hero-copy">お買い物のあいだの、ちょっとした時間で。<br class="desktop-only">人の手による、やさしく丁寧な洗車サービスです。</p>
-          <a class="button button-primary" href="#stores">利用できる店舗を見る</a>
-          <p class="hero-note">現在、サービス開始に向けて準備中です</p>
+          <p class="eyebrow">商業施設の駐車場 × 手洗い洗車</p>
+          <h1>お買い物の間に、<br>愛車を手洗い洗車。</h1>
+          <p class="hero-lead">Wash Go!は、ショッピングモールなど商業施設の駐車場で、お買い物中に手洗い洗車を受けられるサービスです。</p>
+          <p class="hero-price">手洗い洗車 <strong>¥1,800<small>〜</small></strong><span>（税込・サイズS）</span></p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#menu">料金を見る</a>
+            <a class="button button-secondary" href="#facility">施設の方はこちら</a>
+          </div>
+          <p class="hero-note">店舗展開・予約受付は準備中です</p>
         </div>
       </section>
 
@@ -125,35 +130,72 @@
         </div>
       </section>
 
-      <section class="section" id="menu">
+      <section class="section menu-section" id="menu">
         <div class="container">
           <div class="section-label"><span>03</span> MENU <small>メニュー・料金</small></div>
-          <div class="section-heading-row">
-            <h2>車のサイズに合わせて。</h2>
-            <p>すべて手洗い・税込の予定価格です</p>
+          <div class="section-heading-row menu-heading">
+            <h2>あなたの車種で、料金を確認。</h2>
+            <p>すべて手洗い・税込</p>
           </div>
-          <div class="price-grid">
-            <article class="price-card reveal">
-              <p>SIZE S</p><span>軽自動車・コンパクト</span><strong>¥1,800<small>〜</small></strong>
-            </article>
-            <article class="price-card featured reveal">
-              <em>POPULAR</em><p>SIZE M</p><span>セダン・ミニバン</span><strong>¥3,300<small>〜</small></strong>
-            </article>
-            <article class="price-card reveal">
-              <p>SIZE L</p><span>SUV</span><strong>¥4,000<small>〜</small></strong>
-            </article>
+
+          <div class="vehicle-picker reveal">
+            <div class="picker-row">
+              <div class="picker-field">
+                <label for="maker-select">メーカー</label>
+                <select id="maker-select">
+                  <option value="">メーカーを選択してください</option>
+                </select>
+              </div>
+              <div class="picker-field">
+                <label for="model-select">車種</label>
+                <select id="model-select" disabled>
+                  <option value="">先にメーカーを選択してください</option>
+                </select>
+              </div>
+            </div>
+            <p class="picker-hint" id="picker-hint">主要メーカー・車種を掲載しています。一覧にない場合は「その他」をお選びください。</p>
           </div>
-          <div class="options">
-            <h3>オプション</h3>
-            <ul>
-              <li>撥水ワックスコート洗車</li>
-              <li>撥水ポリマーコート洗車</li>
-              <li>ガラスコート</li>
-              <li>車内清掃</li>
-              <li>除菌＆消臭</li>
-              <li>虫取り</li>
-            </ul>
-            <p>※料金・メニューは変更になる場合があります。店舗ごとの正式な料金をご確認ください。</p>
+
+          <div class="price-empty" id="price-empty">
+            <p>メーカーと車種を選ぶと、あなたのお車に合った料金が表示されます。</p>
+          </div>
+
+          <div class="price-result" id="price-result" hidden>
+            <div class="price-result-head">
+              <div>
+                <p class="selected-label">選択中のお車</p>
+                <p class="selected-vehicle" id="selected-vehicle"></p>
+              </div>
+              <div class="size-badge-wrap">
+                <span class="size-badge" id="size-badge"></span>
+                <span class="size-desc" id="size-desc"></span>
+              </div>
+            </div>
+
+            <h3 class="price-block-title">洗車メニュー</h3>
+            <div class="menu-cards" id="menu-cards"></div>
+
+            <h3 class="price-block-title">オプション</h3>
+            <div class="options-table-wrap">
+              <table class="options-table" id="options-table">
+                <thead>
+                  <tr>
+                    <th scope="col">サービス</th>
+                    <th scope="col">料金（税込）</th>
+                  </tr>
+                </thead>
+                <tbody id="options-body"></tbody>
+              </table>
+            </div>
+
+            <p class="price-note">※料金はサイズ区分に基づく目安です。店舗展開時に正式料金をご案内します。</p>
+
+            <div class="reserve-block">
+              <button class="button button-primary reserve-btn" type="button" disabled aria-disabled="true">
+                予約する
+              </button>
+              <span class="reserve-soon">COMING SOON — 店舗・予約機能を準備中</span>
+            </div>
           </div>
         </div>
       </section>
@@ -183,9 +225,34 @@
       <section class="section contact" id="contact">
         <div class="container narrow">
           <div class="section-label centered"><span>CONTACT</span> お問い合わせ</div>
-          <h2>Wash Go!に関するご相談</h2>
-          <p>お問い合わせ窓口を準備しています。公開前に連絡先またはフォームを設定してください。</p>
-          <span class="contact-placeholder">お問い合わせ先：準備中</span>
+          <h2>導入・ご相談はこちら</h2>
+          <p>商業施設への導入、サービス内容に関するお問い合わせを受け付けています。</p>
+          <form
+            class="contact-form"
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            action="/thanks.html"
+          >
+            <input type="hidden" name="form-name" value="contact">
+            <p class="form-honeypot" aria-hidden="true">
+              <label>この欄は入力しないでください<input name="bot-field" tabindex="-1" autocomplete="off"></label>
+            </p>
+            <div class="form-field">
+              <label for="company">会社名 <span class="required">必須</span></label>
+              <input type="text" id="company" name="company" required autocomplete="organization">
+            </div>
+            <div class="form-field">
+              <label for="contact_name">ご担当者名 <span class="required">必須</span></label>
+              <input type="text" id="contact_name" name="contact_name" required autocomplete="name">
+            </div>
+            <div class="form-field">
+              <label for="message">問い合わせ内容 <span class="required">必須</span></label>
+              <textarea id="message" name="message" rows="6" required placeholder="導入を検討している施設名、ご質問内容など"></textarea>
+            </div>
+            <button class="button button-primary form-submit" type="submit">送信する</button>
+          </form>
         </div>
       </section>
     </main>
@@ -202,6 +269,7 @@
           <a href="#menu">メニュー・料金</a>
           <a href="#stores">店舗</a>
           <a href="#facility">施設様へ</a>
+          <a href="#contact">お問い合わせ</a>
         </nav>
       </div>
       <div class="container copyright">© 2026 Wash Go!</div>
