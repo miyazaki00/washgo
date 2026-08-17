@@ -1,0 +1,13 @@
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+.vscode/
+.idea/
+node_modules/
+.env
+.env.*
+!.env.example
+dist/
+.netlify/
+.vercel/
