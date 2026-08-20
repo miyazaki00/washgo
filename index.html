@@ -1,6 +1,14 @@
 <!doctype html>
 <html lang="ja">
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V6L1969X98"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-V6L1969X98');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="商業施設の駐車場で、お買い物の間に愛車をきれいに。少ない水で一台ずつ丁寧に仕上げる手洗い洗車サービス「Wash Go!」。">
@@ -15,7 +23,7 @@
     <link rel="apple-touch-icon" href="./favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Old+Mincho:wght@500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles.css">
     <script src="./cars.js"></script>
     <script src="./script.js" defer></script>
@@ -33,7 +41,6 @@
           <a href="#service">仕組み</a>
           <a href="#quality">こだわり</a>
           <a href="#menu">メニュー</a>
-          <a href="#stores">店舗</a>
           <a href="#facility">施設様へ</a>
           <a class="nav-cta" href="#menu">料金を見る</a>
         </nav>
@@ -42,62 +49,78 @@
 
     <main id="main">
       <section class="hero" id="top">
-        <div class="hero-art" aria-hidden="true">
-          <div class="sun"></div>
-          <div class="building building-a"></div>
-          <div class="building building-b"></div>
-          <div class="parking-line line-a"></div>
-          <div class="parking-line line-b"></div>
-          <svg class="hero-car" viewBox="0 0 540 230" role="presentation">
-            <path d="M68 137 107 72c11-18 29-28 50-29h213c28 0 48 11 65 34l36 49 28 12c13 6 20 18 20 32v21H28v-22c0-17 10-29 25-35l15-7Z" fill="#fff"/>
-            <path d="M119 127 149 76c5-8 13-12 23-12h86v63H119Zm161 0V64h82c16 0 29 6 39 19l31 44H280Z" fill="#b9e7f8"/>
-            <path d="M28 170h491v21H28z" fill="#dff4fb"/>
-            <circle cx="130" cy="186" r="31" fill="#153b4c"/>
-            <circle cx="130" cy="186" r="13" fill="#e8f4f8"/>
-            <circle cx="419" cy="186" r="31" fill="#153b4c"/>
-            <circle cx="419" cy="186" r="13" fill="#e8f4f8"/>
-            <path d="M484 143h26" stroke="#1ca7ec" stroke-width="9" stroke-linecap="round"/>
-          </svg>
-          <span class="bubble bubble-a"></span>
-          <span class="bubble bubble-b"></span>
-          <span class="bubble bubble-c"></span>
-        </div>
-        <div class="container hero-content">
-          <p class="eyebrow">商業施設の駐車場 × 手洗い洗車</p>
-          <h1>お買い物の間に、<br>愛車を手洗い洗車。</h1>
-          <p class="hero-lead">Wash Go!は、ショッピングモールなど商業施設の駐車場で、お買い物中に手洗い洗車を受けられるサービスです。</p>
-          <p class="hero-price">手洗い洗車 <strong>¥1,800<small>〜</small></strong><span>（税込・サイズS）</span></p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#menu">料金を見る</a>
-            <a class="button button-secondary" href="#facility">施設の方はこちら</a>
+        <div class="container hero-grid">
+          <div class="hero-text">
+            <p class="eyebrow">商業施設の駐車場 × 手洗い洗車</p>
+            <p class="hero-catch">お買い物のあいだに、<br>愛車はピカピカ。</p>
+            <h1 class="hero-headline">傷を付けない「手洗い洗車」</h1>
+            <p class="hero-lead">ショッピングモールなど商業施設の駐車場で、<br class="desktop-only">お買い物中にプロが手洗い洗車。</p>
+            <p class="hero-price">手洗い洗車 <strong>¥1,800<small>〜</small></strong><span>（税込・サイズS）</span></p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#menu">料金を見る</a>
+              <a class="button button-secondary" href="#facility">施設担当者さまはこちら</a>
+            </div>
           </div>
-          <p class="hero-note">店舗展開・予約受付は準備中です</p>
+          <div class="hero-visual">
+            <div class="hero-photo-wrap">
+              <img class="hero-photo" src="./hero-bg.png" alt="スタッフが車を手洗い洗車している様子" width="600" height="400">
+            </div>
+          </div>
         </div>
       </section>
 
       <section class="section" id="service">
         <div class="container">
-          <div class="section-label"><span>01</span> SERVICE <small>仕組み</small></div>
-          <h2>ただ駐車するだけでOK。<br>お買い物中に洗車が完了します。</h2>
-          <div class="steps">
-            <article class="step reveal">
-              <span class="step-number">01</span>
-              <div class="step-icon" aria-hidden="true">P</div>
-              <h3>駐車</h3>
-              <p>施設の駐車場に、いつも通り停めるだけ。お車を動かす必要はありません。</p>
-              <small>※施設によっては専用スペースをご利用ください</small>
+          <div class="section-label"><span>01</span> SERVICE <small>ご利用の流れ</small></div>
+          <h2>かんたん6ステップで、<br>お買い物中に洗車が完了。</h2>
+          <div class="steps-v2">
+            <article class="step-v2 reveal">
+              <div class="step-v2-img"><img src="./step-1.png" alt="車種とプランを選択" width="600" height="400"></div>
+              <div class="step-v2-body">
+                <span class="step-v2-num">01</span>
+                <h3>車種と利用店舗から<br>プランを選択</h3>
+                <p>お車のサイズに合ったプランと、お近くの対応店舗をWebから選べます。</p>
+              </div>
             </article>
-            <article class="step reveal">
-              <span class="step-number">02</span>
-              <div class="step-icon wash-icon" aria-hidden="true">✦</div>
-              <h3>手洗い洗車</h3>
-              <p>研修を受けたスタッフが、少ない水で一台ずつ丁寧に手作業で仕上げます。</p>
+            <article class="step-v2 step-v2-reverse reveal">
+              <div class="step-v2-img"><img src="./step-2.png" alt="予約日時を決定" width="600" height="400"></div>
+              <div class="step-v2-body">
+                <span class="step-v2-num">02</span>
+                <h3>予約日時を決定して<br>予約</h3>
+                <p>カレンダーからご都合の良い日時を選んで予約完了。最短当日でもOKです。</p>
+              </div>
             </article>
-            <article class="step reveal">
-              <span class="step-number">03</span>
-              <div class="step-icon" aria-hidden="true">✓</div>
-              <h3>お買い物完了</h3>
-              <p>お戻りになる頃には、愛車がピカピカに。それだけのシンプルな仕組みです。</p>
+            <article class="step-v2 reveal">
+              <div class="step-v2-img"><img src="./step-3.png" alt="予約確認メール" width="600" height="400"></div>
+              <div class="step-v2-body">
+                <span class="step-v2-num">03</span>
+                <h3>予約内容が<br>メールで届く</h3>
+                <p>予約が確定すると、日時・店舗・プラン内容が記載された確認メールが届きます。</p>
+              </div>
+            </article>
+            <article class="step-v2 step-v2-reverse reveal">
+              <div class="step-v2-img"><img src="./step-4.png" alt="駐車場に停めてお買い物" width="600" height="400"></div>
+              <div class="step-v2-body">
+                <span class="step-v2-num">04</span>
+                <h3>駐車場に停めて<br>お買い物へ</h3>
+                <p>施設の駐車場にいつも通り停めるだけ。あとはお買い物をお楽しみください。</p>
+              </div>
+            </article>
+            <article class="step-v2 reveal">
+              <div class="step-v2-img"><img src="./step-5.png" alt="スタッフが手洗い洗車" width="600" height="400"></div>
+              <div class="step-v2-body">
+                <span class="step-v2-num">05</span>
+                <h3>お買い物中に<br>スタッフが手洗い洗車</h3>
+                <p>研修を受けたスタッフが、少ない水で一台ずつ丁寧に手作業で仕上げます。</p>
+              </div>
+            </article>
+            <article class="step-v2 step-v2-reverse reveal">
+              <div class="step-v2-img"><img src="./step-6.png" alt="ピカピカの仕上がり" width="600" height="400"></div>
+              <div class="step-v2-body">
+                <span class="step-v2-num">06</span>
+                <h3>お買い物が終わって<br>戻ったらピカピカ</h3>
+                <p>お戻りの頃には洗車完了。鍵の受け渡しも連絡も不要です。</p>
+              </div>
             </article>
           </div>
         </div>
@@ -109,8 +132,8 @@
           <h2>ふたつの、譲れないこと。</h2>
           <div class="quality-grid">
             <article class="quality-card reveal">
-              <div class="quality-visual hand-visual" aria-hidden="true">
-                <span class="car-panel"></span><span class="cloth"></span><i>✦</i>
+              <div class="quality-visual">
+                <img src="./quality-gentle.png" alt="マイクロファイバーミットで丁寧に手洗い洗車する様子" width="600" height="400">
               </div>
               <div class="quality-content">
                 <p class="card-index">01 / GENTLE</p>
@@ -119,9 +142,8 @@
               </div>
             </article>
             <article class="quality-card reveal">
-              <div class="quality-visual water-visual" aria-hidden="true">
-                <span class="drop">2<small>L</small></span>
-                <span class="water-caption">一般的な洗車の約1/75</span>
+              <div class="quality-visual">
+                <img src="./quality-water.png" alt="水滴が水面に落ちる美しい瞬間" width="600" height="400">
               </div>
               <div class="quality-content">
                 <p class="card-index">02 / SUSTAINABLE</p>
@@ -203,14 +225,6 @@
         </div>
       </section>
 
-      <section class="section stores" id="stores">
-        <div class="container narrow">
-          <div class="section-label centered"><span>04</span> STORES <small>店舗</small></div>
-          <h2>現在、都内商業施設への展開を<br>準備しております。</h2>
-          <p>サービス開始日・店舗・予約方法が決まり次第、こちらのページでお知らせします。</p>
-          <span class="status-pill">COMING SOON</span>
-        </div>
-      </section>
 
       <section class="section facility" id="facility">
         <div class="container facility-grid">
@@ -270,7 +284,6 @@
           <a href="#service">仕組み</a>
           <a href="#quality">こだわり</a>
           <a href="#menu">メニュー・料金</a>
-          <a href="#stores">店舗</a>
           <a href="#facility">施設様へ</a>
           <a href="#contact">お問い合わせ</a>
         </nav>
