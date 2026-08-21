@@ -226,12 +226,15 @@ button { font: inherit; }
 }
 .step-v2-body { padding: 8px 0; }
 .step-v2-num {
-  display: inline-block;
-  margin-bottom: 12px;
+  display: block;
+  margin-bottom: 8px;
   color: var(--blue);
-  font: 700 40px var(--latin);
-  line-height: 1;
-  opacity: .25;
+  font-family: var(--latin);
+  font-size: clamp(72px, 10vw, 120px);
+  font-weight: 700;
+  line-height: .9;
+  letter-spacing: -.04em;
+  opacity: .85;
 }
 .step-v2-body h3 {
   margin: 0 0 14px;
